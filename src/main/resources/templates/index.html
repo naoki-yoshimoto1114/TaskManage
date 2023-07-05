@@ -1,12 +1,29 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <title>Thymeleaf で HelloWorld</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
     </head>
     <body>
-        <h1 th:text="'Spring Boot + Thymeleaf &quot;Hello, ' + ${name} + '&quot;'"></h1>
-        <h2>CSS Using</h2>
+        <h1>タスク一覧</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="task_id">ID</th>
+                    <th class="name">課題名</th>
+                    <th class="actual_time">所要時間</th>
+                    <th class="dead_line">期限</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="task : ${tasks}">
+                    <td class="task_id" th:text="${task['task_id']}"></td>
+                    <td class="name" th:text="${task['name']}"></td>
+                    <td class="actual_time" th:text="${task['actual_time']}"></td>
+                    <td class="dead_line" th:text="${task['dead_line']}"></td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
