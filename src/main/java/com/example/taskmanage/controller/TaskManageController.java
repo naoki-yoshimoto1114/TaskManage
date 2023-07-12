@@ -21,4 +21,9 @@ public class TaskManageController {
         model.addAttribute("tasks", result);
         return "index";
     }
+
+    @GetMapping("/regist")
+    public String task_regist() {
+        return "regist";
+    }
 }
