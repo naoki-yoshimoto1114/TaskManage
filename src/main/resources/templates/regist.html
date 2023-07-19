@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>タスク登録</h1>
-        <form action="./" method="POST">
+        <form action="/create" method="POST">
             <div class="input_tag">
                 <label for="name">タスク名</label>
                 <input type="text" id="name" name="name">
@@ -15,12 +15,10 @@
                 <input type="text" id="dead_line" name="dead_line">
                 <label for="planned_time">計画時間</label>
                 <input type="text" id="planned_time" name="planned_time">
-                <label for="actual_time">所要時間</label>
-                <input type="password" id="actual_time" name="actual_time">
                 <label for="status">ステータス</label>
-                <input type="password" id="status" name="status">
+                <input type="text" id="status" name="status">
             </div>
-            <button type="submit" name="regist" class="opt_btn btn">登録</button>
+            <input type="submit" value="登録">
         </form>
         <input type="button" onclick="location.href='/'" value="一覧にもどる">
     </body>

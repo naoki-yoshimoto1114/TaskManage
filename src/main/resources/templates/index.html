@@ -7,29 +7,31 @@
     </head>
     <body>
         <h1>タスク一覧</h1>
-        <input type="button" onclick="location.href='./regist'" value="タスクの新規登録">
+        <input type="button" onclick="location.href='/regist'" value="タスクの新規登録">
         <table>
             <thead>
                 <tr>
                     <th class="task_id">ID</th>
                     <th class="name">課題名</th>
+                    <th class="dead_line">期限</th>
                     <th class="planned_time">計画時間</th>
                     <th class="actual_time">所要時間</th>
-                    <th class="dead_line">期限</th>
-                    <th class="status">ステータスコード</th>
+                    <th class="delete">編集</th>
                     <th class="delete">削除</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="task : ${tasks}">
-                    <td class="task_id" th:text="${task['id']}"></td>
-                    <td class="name" th:text="${task['name']}"></td>
-                    <td class="planned_time" th:text="${task['planned_time']}"></td>
-                    <td class="actual_time" th:text="${task['actual_time']}"></td>
-                    <td class="dead_line" th:text="${task['dead_line']}"></td>
-                    <td class="status" th:text="${task['status']}"></td>
-                    <td class="delete"><button type="submit" th:value="${task['id']}">削除</button></td>
-                </tr>
+                <form method="GET">
+                    <tr th:each="task : ${tasks}">
+                        <td class="task_id" th:text="${task['id']}"></td>
+                        <td class="name" th:text="${task['name']}"></td>
+                        <td class="dead_line" th:text="${task['dead_line']}"></td>
+                        <td class="planned_time" th:text="${task['planned_time']}"></td>
+                        <td class="actual_time" th:text="${task['actual_time']}"></td>
+                        <td class="edit"><a th:href="@{/edit/{id}(id=${task['id']})}">編集</a></td>
+                        <td class="delete"><a th:href="@{/delete/{id}(id=${task['id']})}">削除</a></td>
+                    </tr>
+                </form>
             </tbody>
         </table>
     </body>

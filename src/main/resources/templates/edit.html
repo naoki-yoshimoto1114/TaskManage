@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>タスク編集</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+  </head>
+  <body>
+  <h1>タスク編集</h1>
+  <form action="/edit" method="POST">
+    <div class="input_tag">
+      <label for="name">タスク名</label>
+      <input type="text" id="name" name="name">
+      <label for="dead_line">期限</label>
+      <input type="text" id="dead_line" name="dead_line">
+      <label for="planned_time">計画時間</label>
+      <input type="text" id="planned_time" name="planned_time">
+      <label for="status">ステータス</label>
+      <input type="text" id="status" name="status">
+    </div>
+    <input type="submit" value="編集">
+  </form>
+  <input type="button" onclick="location.href='/'" value="一覧にもどる">
+  </body>
+</html>
